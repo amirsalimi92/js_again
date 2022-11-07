@@ -100,12 +100,13 @@ function finder(price) {
   }
 }
 
-const msg = "This is my first message";
+// const msg = "This is my first message";
 // console.log(msg.split(" "));
-arr = [1, 2, 3, 4];
-const resu = arr.filter((value) => {
-  return value > 0;
-});
+// arr = [1, 2, 3, 4];
+// const resu = arr.filter((value) => {
+//   return value > 2;
+// });
+// console.log(resu);
 
 // Excersise Arrays
 
@@ -119,11 +120,115 @@ function arrayFromRange(min, max) {
 
 const numbers = arrayFromRange(-6, 9);
 
-const arra = [1, 2, 3, 4];
+const arra = [1, 2, 7.5, 3, 7, 4, 1, 5];
 
 function includes(array, searchElement) {
   for (const iterator of array) if (iterator === searchElement) return true;
   return false;
 }
 
-console.log(includes(arra, 5));
+// console.log(includes(arra, 5));
+
+function except(array, excluded) {
+  const result = [];
+  for (const iterator of array) {
+    if (!excluded.includes(iterator)) {
+      result.push(iterator);
+    }
+  }
+  return result;
+}
+
+// console.log(except(arra, [1, 4]));
+
+function move(array, index, offset) {
+  const position = index + offset;
+  console.log("position: " + position);
+
+  if (position >= array.length || position < 0) {
+    console.error("invalid");
+  } else {
+    const copy = array;
+    console.log("copy: " + copy);
+    const element = copy.splice(index, 1)[0];
+    console.log("element: " + element);
+    console.log(typeof element);
+    console.log("copy2: " + copy);
+    copy.splice(position, 0, element);
+    return copy;
+  }
+}
+
+// console.log(move(arra, 0, 6));
+
+function countOccurrences(array, searchElement) {
+  let result = 0;
+  for (const iterator of array) {
+    if (iterator === searchElement) {
+      result += 1;
+    }
+    console.log(result, iterator, searchElement);
+  }
+  console.log(result);
+}
+
+// countOccurrences(arra, 1);
+
+function getMax(array) {
+  let max = null;
+  for (const iterator of array) {
+    if (iterator > max) {
+      max = iterator;
+    }
+  }
+  return max === null ? undefined : max;
+
+  // With reduce methode
+  // return array.reduce((a,b) => (a > b) ? a : b)
+}
+
+// console.log(getMax(arra));
+
+const movies = [
+  { title: "a", year: 2018, rating: 4.5 },
+  { title: "b", year: 2018, rating: 4.7 },
+  { title: "c", year: 2018, rating: 3 },
+  { title: "d", year: 2017, rating: 4.5 },
+];
+
+function movie(input) {
+  let movies = [];
+  for (const iterator of input) {
+    if (iterator["year"] >= 2018 && iterator["rating"] > 4) {
+      movies.push(iterator);
+    }
+  }
+  movies.sort((a, b) => {
+    a.rating - b.rating;
+  });
+  movies.reverse();
+  const output = movies.map((m) => m.title);
+  return output;
+}
+
+// console.log(movie(movies));
+
+function sum(...args) {
+  console.log(args);
+}
+
+// sum();
+
+function interest(principal, rate = 3.5, years) {
+  return ((principal * rate) / 100) * years;
+}
+
+// console.log(interest(1000, undefined, 7));
+
+function sum(...args) {
+  let total = 0;
+  for (arg of args) total += arg;
+  return total;
+}
+
+console.log(sum(10, 20, 30));

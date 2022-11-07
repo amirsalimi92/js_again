@@ -5,12 +5,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css">
     <title>Document</title>
 </head>
 
 <body>
+    <div class="container">
+        <div id="header">
+            <h2>Guess the number</h2>
+            <h5>Enter a number between 1 to 200</h5>
+        </div>
+        <div id="main" class="row">
+            <div id="searchBox" class="col-2">
+                <input type="number" id="input">
+            </div>
+            <div id="guessBut" class="col ms-3">
+                <button type="submit" id="button" class="btn btn-warning">Guess!</button>
+            </div>
+        </div>
+        <br>
+        <div id="footer">
+            <h4>Let's go!</h4>
+        </div>
+    </div>
+
+
     <!-- <script src="/main.js"></script> -->
-    <script src="/oop.js"></script>
+    <!-- <script src="/oop.js"></script> -->
+    <script src="/new.js"></script>
 </body>
 
 </html>
